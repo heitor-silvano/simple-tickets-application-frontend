@@ -2,8 +2,11 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Nunito_Sans } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
+import { Card, CardHeader } from "@/components/ui/card";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
 
-const nunitoSans = Nunito_Sans({subsets:['latin'],variable:'--font-sans'});
+const nunitoSans = Nunito_Sans({ subsets: ["latin"], variable: "--font-sans" });
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -28,9 +31,29 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={cn("h-full", "antialiased", geistSans.variable, geistMono.variable, "font-sans", nunitoSans.variable)}
+      className={cn(
+        "h-full",
+        "antialiased",
+        geistSans.variable,
+        geistMono.variable,
+        "font-sans",
+        nunitoSans.variable,
+      )}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        <CardHeader className="absolute text-sm">
+          Simple Tickets Application
+        </CardHeader>
+        <Card className="flex flex-row items-center justify-center">
+          <Link href="tickets">
+            <Button>Tickets</Button>
+          </Link>
+          <Link href="profile">
+            <Button>Perfil</Button>
+          </Link>
+        </Card>
+        {children}
+      </body>
     </html>
   );
 }
