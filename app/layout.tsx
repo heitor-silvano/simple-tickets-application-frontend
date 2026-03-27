@@ -40,18 +40,20 @@ export default function RootLayout({
         nunitoSans.variable,
       )}
     >
-      <body className="min-h-full flex flex-col">
-        <CardHeader className="absolute text-sm">
-          Simple Tickets Application
-        </CardHeader>
-        <Card className="flex flex-row items-center justify-center">
-          <Link href="tickets">
-            <Button>Tickets</Button>
-          </Link>
-          <Link href="profile">
-            <Button>Perfil</Button>
-          </Link>
-        </Card>
+      <body>
+        <div className="relative flex flex-row w-min p-4">
+          <div className="absolute top-1/2 -translate-y-1/2 text-sm">
+            Simple Tickets Application
+          </div>
+          <div className="flex flex-row items-center justify-center space-x-4 w-screen">
+            <Link href="tickets" className="hover:cursor-pointer">
+              <Button>Tickets</Button>
+            </Link>
+            <Link href="profile" className="hover:cursor-pointer">
+              <Button>Perfil</Button>
+            </Link>
+          </div>
+        </div>
         {children}
       </body>
     </html>
